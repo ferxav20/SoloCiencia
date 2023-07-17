@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 
@@ -9,7 +9,7 @@
     <title>Inicio de sesion</title>
 </head>
 <body>
-<img src="fondo5.jpg" id="fondo">
+<img src="fondo5.jpg" id="fondo" alt="fondo de la pagina web">
     <header>
         <img src="logo.png" alt="" id="logo">
         <h1>SoloCiencia</h1>
