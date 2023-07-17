@@ -1,0 +1,671 @@
+/*-------------------------GENERAL-------------------------*/
+
+/*---------------CUERPO---------------*/
+
+/*Se eliminan los margenes y el padding a todos los elementos*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/*Se da un estilo de letra a todo el documento y un color de fondo por defecto*/
+body {
+    font-family: Arial;
+    background-color: #1d1d1f;
+}
+/*Se ajusta la distribuciÃ³n de los elementos en todas las pÃ¡ginas y se aplican margenes laterales*/
+main {
+    display: flex;
+    justify-content: center;
+    column-gap: 4rem;
+    margin: 0 5rem;
+    flex-wrap: wrap;
+}
+/*Se ajusta el formato de las imagenes del fondo de todas las paginas
+para que no se muevan, ocupen toda la pantalla y se vean oscuras*/
+#fondo {
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    position: fixed;
+    filter: brightness(.7);
+}
+/*Se fija un estandar para todos los titulos*/
+.titulo {
+    /*Degradado del texto*/
+    background: -webkit-linear-gradient(45deg, #029602 25%, #031FA2 70%);
+    -webkit-background-clip: text; /*Hay otra manera de definir esta funcion, pero esta bien asi*/
+    -webkit-text-fill-color: transparent;
+    /**/
+    font-family: Impact;
+    letter-spacing: .1rem;
+    font-size: 1.5rem;
+    text-align: center;
+    cursor: default;
+}
+
+/*---------------CABECERA---------------*/
+
+/*Se ajustan las dimenciones y el color de la cabecera en todas las paginas*/
+header {
+    padding: .5rem;
+    height: 5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #000;
+    background-image: linear-gradient(45deg, #029602, #029602cc, #02960255);
+}
+/*Se ajusta el titulo de la cabecera en todas las paginas y se alinea a la izquierda*/
+header h1 {
+    width: 100%;
+    color: #031FA2;
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: left;
+    align-self: center;
+}
+/*Logo de cabecera*/
+#logo {
+    height: 4rem;
+}
+/*Se ajusta la barra de navegacion bajo el header en las paginas posteriores al login*/
+nav {
+    /*La barra se queda en la parte superior al bajar*/
+    position: sticky;
+    top: 0;
+    /*Fondo estilo cristal*/
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    /**/
+    height: 3rem;
+    width: 100%;
+    /*Para los elementos dentro de la barra*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 18rem;
+    /*Se coloca al frente de todo el contenido*/
+    z-index: +1;
+}
+/*Se ajusta la distribucion de los elementos de la barra de navegacion*/
+nav div {
+    text-align: center;
+    margin: 1rem 0;
+    height: 1rem;
+    width: auto;
+    padding: 0;
+    flex-grow: 1;
+}
+/*Se ajusta el estilo del texto de los elementos del menu*/
+nav a, nav p {
+    text-decoration: none;
+    color: #f5f5f7;
+    font-weight: bold;
+    transition: .1s ease;
+    padding: 0 3px 3px 3px;
+}
+/*Subrayado de elementos del menu al hacer hover*/
+nav a:hover {
+    color: #029602;
+    border-bottom: solid #029602 2px;
+}
+/*El elemento del menu se hace mas pequeÃ±o al hacer click*/
+/*Este efecto solo se aplica a los elementos principales del menu que sean seleccionables*/
+nav div:active{
+    scale: .95;
+}
+.contenedor_cursos:active, .cursos:active {
+    scale: 1;
+}
+/*Se ajusta la posicion del elemento del menu que representa la pantalla actual*/
+.activo {
+    margin-top: .8rem;
+}
+/*Se ajusta el estilo del elemento del menu que representa la pantalla actual*/
+.activo p {
+    color: #031FA2;
+    font-size: 1.4rem;
+    text-shadow: .5px .5px 3px #000;
+    cursor: default;
+}
+/*Se eliminan los efectos al hacer click en el elemento activo*/
+nav .activo:active {
+    scale: 1;
+}
+/*Contenedor de "CURSOS" con contenedor desplegable oculto*/
+.contenedor_cursos {
+    cursor: default;
+    height: 1rem;
+    overflow: hidden;
+    transition: .5s ease;
+}
+/*Se muestra el contenedor desplegable al hacer hover en "CURSOS"*/
+.contenedor_cursos:hover {
+    height: 9.5rem;
+}
+/*Se ajusta el estilo del contenedor desplegable*/
+.cursos {
+    height: 7.25rem;
+    width: 100%;
+    margin: 0;
+    border-radius: 0 0 10px 10px;
+    background-color: #1d1d1faa;
+    background-image: linear-gradient(to bottom, #1d1d1f44, #1d1d1f22);
+    transform: translateY(-2px);
+}
+/*Se ajusta la distribucion de los elementos del contenedor desplegable*/
+.cursos div {
+    width: 100%;
+    margin: .75rem 0;
+    padding: .75rem 0;
+    text-align: center;
+}
+/*Se ajusta el estilo del texto del contenedor desplegable*/
+.cursos a {
+    color: #f5f5f7cc;
+    font-weight: 600;
+    transition: .05s ease;
+}
+/*Se ajusta el tamaÃ±o del contenedor de redes sociales en la cabecera*/
+.contenedor_redes, .search {
+    width: 10rem;
+    display: flex;
+    margin-right: 1.5rem;
+    text-align: center;
+    padding-top: 5px;
+}
+.search {
+    transform: translateX(60%) translateY(3px);
+    font-size: 3rem;
+}
+.search a:hover {
+    color: #029602;
+    rotate: -5deg;
+    transform: translateX(-5px);
+}
+/*Se ajusta el tamaÃ±o de los iconos de redes sociales y de busqueda en la cabecera*/
+.redes_sociales {
+    width: 100%;
+    font-size: 2rem;
+    gap: 1.5rem;
+}
+/*Se aplican estilos a los iconos de redes sociales y de busqueda en la cabecera*/
+.redes_sociales a, .search a {
+    color: #f5f5f7;
+    transition: .3s;
+}
+/*Se define un tiempo para las animaciones en los iconos de redes sociales en la cabecera*/
+.redes_sociales li {
+    transition: .3s;
+}
+/*Los iconos de redes sociales en la cabecera crecen al hacer hover*/
+.redes_sociales li:hover {
+    scale: 1.1;
+}
+/*Los iconos de redes sociales en la cabecera cambian de color al hacer hover*/
+.redes_sociales a:hover {
+    color: #029602;
+}
+
+/*-------------------------PAGINAS-------------------------*/
+
+/*---------------FORMULARIO---------------*/
+
+/*Se aplica un estilo generico a los contenedores de formularios a lo largo del sitio web*/
+form {
+    margin-top: 4rem;
+    position: relative;
+    width: 25rem;
+    font-family: 'Courier New';
+    /*Fondo estilo cristal*/
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(100, 100, 100, 0.3);
+    /**/
+    padding: 2rem 3rem;
+}
+/*Se ajusta el estilo de las etiquetas para los elementos de los formularios*/
+form label {
+    font-size: 1rem;
+    color: #029602;
+    font-weight: bolder;
+}
+/*Se ajusta el estilo del texto que se ingresa para los elementos de los formularios*/
+form p {
+    font-size: 1rem;
+    color: #029602;
+    font-weight: 500;
+}
+/*Se ajusta el estilo de los links en los formularios*/
+/*Los links dicen "Registrate aqui" y "Inicia sesion aqui"*/
+form a {
+    font-size: 1rem;
+    color: #029602;
+    font-weight: 700;
+    transition: .3s;
+}
+/*Se ajusta el estilo de los links en los formularios al hacer hover*/
+form a:hover {
+    font-size: 1rem;
+    color: #031FA2;
+    font-weight: 700;
+}
+/*Se ajusta la distribucion de los elementos en el formulario*/
+form div {
+    position: relative;
+    width: 100%;
+    margin-top: 15px;
+}
+/*Se aplica un estilo a los inputs de los formularios*/
+form div input {
+    width: 100%;
+    padding: 5px 0;
+    font-size: 1.1rem;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #029602;
+    outline: none;
+    resize: none;
+    background-color: transparent;
+    color: #029602;
+}
+/*Se aplica un estilo al botÃ³n de envÃ­o de formulario*/
+form div input[type="submit"] {
+    width: 8rem;
+    text-align: center;
+    background-color: transparent;
+    border: solid 1px #029602;
+    border-radius: 10px ;
+    color: #029602;
+    cursor: pointer;
+    padding: .5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: .3s;
+}
+/*Se aplica un estilo al botÃ³n de envÃ­o de formulario al hacer hover*/
+/*El boton cambia de color y crece*/
+form div input[type="submit"]:hover {
+    scale: 1.05;
+    color: #f5f5f7;
+    background-color: #031FA2;
+    border-color: transparent;
+}
+/*Se aplica un estilo al botÃ³n de envÃ­o de formulario al hacer click*/
+/*El boton se hace mas pequeÃ±o*/
+form div input[type="submit"]:active {
+    scale: .95;
+}
+/*mensaje de error*/
+.error-message p {
+  color: #711019;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/*---------------INICIO---------------*/
+
+/*Se define un estilo para los contenedores en la pantalla de inicio*/
+.contenedor_video {
+    /*Fondo estilo cristal*/
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /**/
+    margin-top: 5rem;
+    padding: 1rem;
+    border-radius: 20px;
+    text-align: center;
+    flex-grow: 1;
+    max-width: 35rem;
+}
+/*Se ajusta el tamaÃ±o de los videos en la pantalla de inicio y se aplican estilos*/
+.contenedor_video iframe {
+    height: 200px;
+    width: 355px;
+    border-radius: 20px;
+    margin: 1rem 0;
+    box-shadow: #000 .5rem .5rem 1rem;
+}
+/*Se aplica un estilo a los links de "click aqui" en los contenedores de la pantalla de inicio*/
+.contenedor_video a {
+    text-decoration: none;
+    margin-left: 10px;
+    color: #031FA2;
+    font-size: 1.5rem;
+    font-weight: 700;
+    transition: .3s ease;
+}
+/*Se aplica un estilo al hacer hover en los links de "click aqui" en los contenedores de la pantalla de inicio*/
+.contenedor_video a:hover{
+    color: #029602;
+}
+/*Se aplica un estilo a los parragos antes de los links de "click aqui" en la pantalla de inicio*/
+.contenedor_video p {
+    color: #f5f5f7;
+    cursor: default;
+    line-height: 2.5rem;
+}
+
+/*---------------REFERENCIAS---------------*/
+
+/*Se definen las dimenciones y estilos del contenedor de la tabla periodica en referencias*/
+.contenedor_tabla {
+    display: flex;
+    justify-content: center;
+    background-color: #f5f5f7;
+    background-image: radial-gradient(#1d1d1fee, #1d1d1f);
+    /*Fondo estilo cristal*/
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(150, 150, 150, 0.2);
+    /**/
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 5rem;
+}
+/*Se define un estilo a el titulo de la tabla periodica en referencias*/
+table h1 {
+    color: #031FA2;
+    text-shadow: 1px 1px 2px #00CCFF;
+    font-size: 2.5rem;
+    cursor: default;
+    font-family: monospace;
+}
+/*Se aplica un estilo general para los elementos de la tabla periodica en referencias*/
+table td {
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    text-align: left;
+    text-justify: center;
+    border-radius: 5px;
+    transition: .4s ease;
+    box-shadow: #00000013 3px 3px 5px;
+}
+/*Se aplica un estilo general para los links de los elementos en la tabla periodica de referencias*/
+table td a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: .2rem 0 0 .2rem;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000000cc;
+    transition: .4s;
+}
+/*Se aplica un estilo distinto de texto para el numero atomico y el nombre de los elementos de la tabla periodica*/
+table td p {
+    font-family: Arial;
+    font-size: .5rem;
+}
+/*Se aplica un estilo al hacer hover en los elementos de la tabla periodica en referencias*/
+table td:hover {
+    scale: 1.05;
+    background-image: linear-gradient(to bottom, #031FA2 , #031FA2cc);
+    box-shadow: #f5f5f755 0 0 1rem;
+}
+/*Se cambia el color de texto al hacer hover en los elementos de la tabla periodica de referencias*/
+table a:hover {
+    color: #f5f5f7;
+    
+}
+/*Se anulan las animaciones en elementos vacios*/
+.vacio:hover {
+    scale: 1;
+    background-image: none;
+    box-shadow: none;
+}
+/*Se ajusta el texto en los elementos de referencia a lantanidos y actinidos*/
+.refla p {
+    cursor: default;
+    font-size: .75rem;
+    color: #f5f5f7;
+    text-align: center;
+    padding-left: 0;
+}
+/*Se anulan las animaciones en elementos de referencia a lantanidos y actinidos*/
+.refla:hover {
+    scale: 1;
+    background-image: linear-gradient(to bottom, #09009f, #09009fcc);
+    box-shadow: #00000013 3px 3px 5px;
+}
+/*Se anulan las animaciones en elementos de referencia a lantanidos y actinidos*/
+.refla a:hover {
+    color: #f5f5f7;
+}
+/*Se hacen invisibles los elementos de la tabla que conforman espacio vacio*/
+.vacio {
+    background-color: transparent;
+    height: .5rem;
+    box-shadow: none;
+}
+/*Colores de elementos de la tabla*/
+.otros {
+    background-image: linear-gradient(to bottom, #DDABFF, #DDABFFaa);
+}
+.alcalino {
+    background-image: linear-gradient(to bottom, #F7CAAC, #F7CAACaa);
+}
+.alcalinoterreo {
+    background-image: linear-gradient(to bottom, #FFE599, #FFE599aa);
+}
+.metal_transicion {
+    background-image: linear-gradient(to bottom, #FFFF00, #FFFF00aa);
+}
+.metal {
+    background-image: linear-gradient(to bottom, #FFE599, #FFE599aa);
+}
+.semimetal {
+    background-image: linear-gradient(to bottom, #68FB61, #68FB61aa);
+}
+.halogeno {
+    background-image: linear-gradient(to bottom, #FF66FF, #FF66FFaa);
+}
+.gas_noble {
+    background-image: linear-gradient(to bottom, #00CCFF, #00CCFFaa);
+}
+.na {
+    background-image: linear-gradient(to bottom, #464646, #464646cc);
+}
+.lantanido {
+    background-image: linear-gradient(to bottom, #E2EFD9, #E2EFD9aa);
+}
+.actinido {
+    background-image: linear-gradient(to bottom, #E2EFD9, #E2EFD9aa);
+}
+/*Referencias para lantanidos y actinidos*/
+.refla {
+    background-image: linear-gradient(to bottom, #09009f, #09009fcc);
+}
+
+/*---------------CONTÃ�CTANOS---------------*/
+
+/*Se ajusta la distribucion de los elementos en la pantalla de contactanos*/
+.main_equipo {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 60px;
+}
+/*Se aplica un estilo y se ajustan las dimenciones de los contenedores para la informacion de cada estudiante en contactanos*/
+.perfil {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    /*Fondo estilo cristal*/
+    background: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 30px rgba(101, 101, 101, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(100, 100, 100, 0.3);
+    /**/
+    padding: 30px;
+    border-radius: 10%;
+    margin: 0px 25px 90px 25px;
+    transition: .6s;
+    transform: translateY(60px);
+}
+/*Los contenedores en contactanos se amplian al hacer hover*/
+.perfil:hover {
+    border-radius: 10px;
+    height: 280px;
+    margin-bottom: 30px;
+}
+/*Se aplica un estilo y se ajusta la posicion del texto de experiencia de cada estudiante en contactanos*/
+.experiencia {
+    transform: translateX(220px) translateY(-240px);
+    height: 400px;
+    width: 300px;
+    text-align: justify;
+}
+/*Se ajustan las dimenciones y posicion de los contenedores de imagenes en contactanos*/
+.perfil img {
+    position: relative;
+    width: 100%;
+    height: 100%; 
+    z-index: +1;
+}
+/*Se ajustan las dimenciones y se aplican estilos a las imagenes de estudiantes en contactanos*/
+.foto_perfil img {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 10%;
+    box-shadow: 0 0 22px #3336;
+    transition: .6s;
+}
+/*Las imagenes de los estudiantes en contactanos se desplazan y cambian de forma al hacer hover*/
+.perfil:hover img {
+    transform: translateY(-60px);
+    border-radius: 10px;
+}
+/*Se aplican estilos y se define la distribucion de la informacion de cada estudiante en contactanos*/
+.perfil .caption {
+    text-align: center;
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: .4s;
+    color: #f5f5f799;
+}
+/*Los textos de los estudiantes aparecen lentamente luego de hacer hover en el contenedor principal*/
+.perfil:hover .caption {
+    opacity: 1;
+}
+/*Se aplican estilos al nombre de los estudiantes*/
+.perfil .caption h3 {
+    font-size: 21px;
+    color: #f5f5f7;
+}
+/*Se aplican otros estilos a la carrera y la cedula de los estudiantes*/
+.perfil .caption p {
+    font-size: 17px;
+    margin: 2px 0 6px 0;
+}
+/*Se aplican estilos y se definen las dimensiones de los iconos de redes sociales de los estudiantes en contactanos*/
+.perfil .redes a {
+    margin-right: 8px;
+    color: #029602;
+    font-size: 18px;
+    transition: .3s;
+}
+/*Los iconos de redes sociales de los estudiantes en contactanos cambian de color al hacer hover*/
+.perfil .redes a:hover {
+    color: #031FA2;
+}
+
+
+/*---------------PIE DE PAGINA---------------*/
+
+/*Se definen las dimensiones y estilos de los pies de pagina en todas las paginas*/
+footer {
+    width: 100%;
+    height: 5rem;
+    background-image: linear-gradient(to top, #02960255, #02960200);
+    margin-top: 5rem;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    color: #f5f5f7;
+    padding: 2rem;
+}
+/*Se aplican estilos a los elementos del menu de navegacion en el pie de pagina*/
+footer a {
+    color: #f5f5f7;
+    text-decoration: none;
+}
+/*Los elementos en el pie de pagina intentan ocupar todo el espacio horizontal disponible*/
+footer div {
+    flex-grow: 1;
+}
+/*Se aplican estilos a los elementos del menu de navegacion del footer*/
+.menu_footer {
+    /*Se quitan los efectos del menu superior*/
+    background: none;
+    border: none;
+    box-shadow: none;
+    width: auto;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    /**/
+    position: relative;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+/*Se ajustan las dimensiones del menu en el pie de pagina*/
+ul {
+    width: 40rem;
+    list-style: none;
+    display: inherit;
+    font-size: .7rem;
+}
+/*Los elementos del menu intentan ocupar todo el espacio disponible horizontalmente*/
+li {
+    flex-grow: 1;
+}
+/*Se reduce el tamaÃ±o del texto de derechos de autor en el pie de pagina*/
+.copyright {
+    font-size: .7rem;
+}
+/*Se ajusta el contenedor del boton de cerrar sesion en el pie de pagina*/
+.logout {
+    text-align: end;
+    width: 0;
+    transition: .3s;
+}
+/*Se aplican estilos al boton de cerrar sesion en el pie de pagina*/
+.logout a {
+    padding: .5rem;
+    background-color: #031FA2;
+    border-radius: 10px;
+    transition: .3s;
+}
+/*El boton de cerrar sesion en el pie de pagina crece al hacer hover*/
+.logout:hover {
+    scale: 1.05;
+}
+/*El texto del boton de cerrar sesion en el pie de pagina cambia de color al hacer hover*/
+.logout a:hover {
+    background-color: #029602;
+}
+/*El boton de cerrar sesion en el pie de pagina se hace mas pequeÃ±o al hacer click*/
+.logout:active {
+    scale: .95;
+}

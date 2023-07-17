@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Química y Biología</title>
+</head>
+<body>
+    <img src="fondo5.jpg" id="fondo">
+    <header>
+        <img src="logo.png" alt="" id="logo">
+        <h1>SoloCiencia</h1>
+        <!--Icono busqueda-->
+        <div class="search">
+            <a href="https://www.google.com/?hl=es" target="_blank"><ion-icon name="search-circle-outline"></ion-icon></a>
+        </div>
+        <div class="contenedor_redes">
+            <ul class="redes_sociales">
+                <!--Facebook-->
+                <li>
+                    <a href="https://www.facebook.com/profile.php?id=100094290492545" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a>
+                </li>
+                <!--Twitter-->
+                <li>
+                    <a href="https://twitter.com/CienciasSo" target="_blank"><ion-icon name="logo-twitter"></ion-icon></a>
+                </li>
+                <!--Instagram-->
+                <li>
+                    <a href="https://www.instagram.com/solo_ciencia_cursos/" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <nav>
+        <div>
+            <a href="home.html">INICIO</a>
+        </div>
+        <div class="contenedor_cursos">
+            <p style="color: #031FA2;">CURSOS</p>
+            <div class="cursos">
+                <div>
+                    <a href="rccn.html">CIENCIAS NATURALES</a>
+                </div>
+                <div>
+                    <a href="rcqb.html">QUÍMICA Y BIOLOGÍA</a>
+                </div>
+                <div>
+                    <a href="rcp.html">PROGRAMACIÓN</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a href="referencias.html">REFERENCIAS</a>
+        </div>
+        <div>
+            <a href="contactanos.html">CONTÁCTANOS</a>
+        </div>
+    </nav>
+    <main>
+            <form action="registro_quibio.jsp" method="POST">
+                <div>
+                    <h1 class="titulo">Registro en el Curso de quimica y biologia</h1>
+                </div>
+                <div>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" required>
+                </div>    
+                <div>
+                    <label for="cedula">Cédula:</label>
+                    <input type="text" name="cedula" required>
+                </div>
+                <div>
+                    <label for="fecha">Fecha de inicio:</label>
+                    <select name="fecha" required>
+                        <option value="20 de julio">20 de julio</option>
+                        <option value="24 de octubre">24 de octubre</option>
+                        <option value="14 de noviembre">14 de noviembre</option>
+                </select>
+                </div>
+                <div>
+                    <input type="submit" value="Registrarse">
+                </div>
+    </main>
+    <footer>
+        <div class="copyright">
+            <p>Derechos reservados</p>
+        </div>
+        <nav class="menu_footer">
+            <ul>
+                <li>
+                    <a href="home.html">INICIO</a>
+                </li>
+                <li>
+                    <a href="rccn.html">CIENCIAS NATURALES</a>
+                </li>
+                <li>
+                    <a href="rcqb.html">QUÍMICA Y BIOLOGÍA</a>
+                </li>
+                <li>
+                    <a href="rcp.html">PROGRAMACIÓN</a>
+                </li>
+                <li>
+                    <a href="referencias.html">REFERENCIAS</a>
+                </li>
+                <li>
+                    <a href="contactanos.html">CONTÁCTANOS</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="logout">
+            <a href="pagina1.jsp">Cerrar sesión</a>
+        </div>
+    </footer>
+    <!--Para el uso de íconos en información de contacto-->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
