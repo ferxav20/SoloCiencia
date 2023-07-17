@@ -36,7 +36,7 @@ para que no se muevan, ocupen toda la pantalla y se vean oscuras*/
     background: -webkit-linear-gradient(45deg, #029602 25%, #031FA2 70%);
     -webkit-background-clip: text; /*Hay otra manera de definir esta funcion, pero esta bien asi*/
     -webkit-text-fill-color: transparent;
-    /**/
+    
     font-family: Impact, serif;
     letter-spacing: .1rem;
     font-size: 1.5rem;
@@ -80,7 +80,7 @@ nav {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    /**/
+    
     height: 3rem;
     width: 100%;
     /*Para los elementos dentro de la barra*/
@@ -228,7 +228,7 @@ form {
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(100, 100, 100, 0.3);
-    /**/
+    
     padding: 2rem 3rem;
 }
 /*Se ajusta el estilo de las etiquetas para los elementos de los formularios*/
@@ -320,7 +320,7 @@ form div input[type="submit"]:active {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    /**/
+    
     margin-top: 5rem;
     padding: 1rem;
     border-radius: 20px;
@@ -370,7 +370,7 @@ form div input[type="submit"]:active {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(150, 150, 150, 0.2);
-    /**/
+    
     padding: 2rem;
     border-radius: 10px;
     margin-top: 5rem;
@@ -513,7 +513,7 @@ table a:hover {
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(100, 100, 100, 0.3);
-    /**/
+    
     padding: 30px;
     border-radius: 10%;
     margin: 0px 25px 90px 25px;
@@ -621,7 +621,7 @@ footer div {
     width: auto;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    /**/
+    
     position: relative;
     align-items: center;
     margin: 0;
